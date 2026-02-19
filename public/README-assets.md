@@ -2,8 +2,8 @@
 
 Coloque os arquivos na pasta `public/`:
 
-- **background.jpg** – imagem de fundo (ex.: mina a céu aberto)
-- **logo.png** – logotipo circular da Mineração Dibase
+- **background.jpg.jpeg** – imagem de fundo (ex.: mina a céu aberto)
+- **logo.png.jpeg** – logotipo circular da Mineração Dibase
 - **produtos/1.jpg**, **produtos/2.jpg**, … – fotos dos produtos (até 6)
 
 Se alguma foto em `produtos/` não existir, o site exibe um card de vidro com placeholder.

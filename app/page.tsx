@@ -27,10 +27,12 @@ const item = {
 const NUM_PRODUTOS = 6;
 
 export default function Home() {
+  const [logoError, setLogoError] = useState(false);
+
   return (
     <main className="relative min-h-dvh min-h-screen w-full bg-fixed-mine">
       <div className="relative z-10 mx-auto flex min-h-dvh min-h-screen w-full max-w-md flex-col items-center px-4 pb-12 pt-8">
-        {/* Logo circular com borda dourada metálica (igual à referência) */}
+        {/* Logo circular com borda dourada (fallback "DIBASE" se imagem não carregar) */}
         <motion.div
           className="mb-8 flex justify-center"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -49,16 +51,21 @@ export default function Home() {
             },
           }}
         >
-          <div className="rounded-full p-1 ring-4 ring-[#D4AF37] shadow-lg">
-            <Image
-              src={`${BASE_PATH}/logo.png`}
-              alt="Mineração Dibase Areia e Brita"
-              width={160}
-              height={160}
-              className="h-36 w-36 rounded-full object-contain sm:h-40 sm:w-40"
-              priority
-              unoptimized
-            />
+          <div className="flex h-36 w-36 items-center justify-center rounded-full p-1 ring-4 ring-[#D4AF37] shadow-lg bg-[rgba(15,15,15,0.9)] sm:h-40 sm:w-40">
+            {!logoError ? (
+              <Image
+                src={`${BASE_PATH}/logo.png.jpeg`}
+                alt="Mineração Dibase Areia e Brita"
+                width={160}
+                height={160}
+                className="h-full w-full rounded-full object-contain"
+                priority
+                unoptimized
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <span className="font-display text-center text-lg font-semibold text-[#D4AF37] sm:text-xl">DIBASE</span>
+            )}
           </div>
         </motion.div>
 

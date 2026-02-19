@@ -33,7 +33,7 @@ body {
 .bg-fixed-mine {
   background-color: #0a0a0a;
   background-image: linear-gradient(var(--overlay), var(--overlay)),
-    url('/dibase-hub/background.jpg');
+    url('/dibase-hub/background.jpg.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

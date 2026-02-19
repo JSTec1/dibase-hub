@@ -41,8 +41,8 @@ Gere o build de novo e publique a pasta `out`.
 
 Coloque em **`public/`**:
 
-- `background.jpg` – imagem de fundo
-- `logo.png` – logotipo
+- `background.jpg.jpeg` – imagem de fundo
+- `logo.png.jpeg` – logotipo
 - `produtos/1.jpg`, `produtos/2.jpg`, … – fotos dos produtos (até 6)
 
 Detalhes em **`public/README-assets.md`**.
