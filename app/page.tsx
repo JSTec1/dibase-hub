@@ -149,7 +149,7 @@ export default function Home() {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-3"
+            className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide sm:grid sm:grid-cols-3 sm:overflow-visible"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-10px' }}
@@ -174,8 +174,9 @@ function ProdutoCard({ index }: { index: number }) {
   const src = `${BASE_PATH}/produtos/${index}.jpg`;
 
   return (
-    <motion.div variants={item} className="aspect-square w-full">
-      <GlassCard className="flex aspect-square h-full min-h-0 w-full items-center justify-center overflow-hidden rounded-2xl border-white/[0.08] p-0 hover:border-[#D4AF37]">
+    <motion.div variants={item} className="min-w-[140px] shrink-0 sm:min-w-0 sm:shrink">
+      {/* Card como na referência: borda dourada GROSSA e proeminente, cantos muito arredondados */}
+      <div className="aspect-square w-full rounded-3xl border-[3px] border-[#D4AF37] bg-[rgba(10,10,10,0.95)] overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_25px_rgba(212,175,55,0.3)]">
         <div className="relative h-full w-full">
           {!imgError ? (
             <Image
@@ -183,14 +184,14 @@ function ProdutoCard({ index }: { index: number }) {
               alt={`Produto ${index}`}
               fill
               className="object-cover"
-              sizes="(max-width: 640px) 50vw, 33vw"
+              sizes="140px"
               unoptimized
               onError={() => setImgError(true)}
             />
           ) : null}
           {imgError ? (
             <div
-              className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-[rgba(20,20,20,0.8)] backdrop-blur-lg text-white"
+              className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-[rgba(10,10,10,0.95)] text-white"
               aria-hidden
             >
               <span className="text-2xl text-[#D4AF37]" title="Pedra">石</span>
@@ -198,7 +199,7 @@ function ProdutoCard({ index }: { index: number }) {
             </div>
           ) : null}
         </div>
-      </GlassCard>
+      </div>
     </motion.div>
   );
 }
