@@ -6,7 +6,11 @@ import Image from 'next/image';
 import { Mail, Instagram, FileText, Clock, Mountain } from 'lucide-react';
 import GlassCard from '@/_components/GlassCard';
 import WhatsAppIcon from '@/_components/WhatsAppIcon';
+import Footer from '@/_components/Footer';
 import { BASE_PATH } from '@/lib/basePath';
+
+const WHATSAPP_URL = 'https://wa.me/5519999706056?text=Olá,%20gostaria%20de%20falar%20com%20o%20faturamento%20da%20Dibase..';
+const INSTAGRAM_URL = 'https://www.instagram.com/mineracaodibasepedreira?igsh=bWFweDFicmV0eW9x';
 
 const stagger = {
   visible: { transition: { staggerChildren: 0.06, delayChildren: 0.15 } },
@@ -27,7 +31,7 @@ export default function Home() {
     <main
       className="relative min-h-dvh min-h-screen w-full bg-fixed-mine"
       style={{
-        backgroundImage: `linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url(background.jpg.jpeg)`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${BASE_PATH}/background.jpg.jpeg)`,
       }}
     >
       <div className="relative z-10 mx-auto flex min-h-dvh min-h-screen w-full max-w-md flex-col items-center px-4 pb-6 pt-5">
@@ -53,7 +57,7 @@ export default function Home() {
           <div className="flex h-40 w-40 items-center justify-center rounded-full p-1 ring-4 ring-[#D4AF37] shadow-lg bg-[rgba(15,15,15,0.9)] sm:h-44 sm:w-44">
             {!logoError ? (
               <Image
-                src={BASE_PATH ? `${BASE_PATH}/logo.png.jpeg` : 'logo.png.jpeg'}
+                src={`${BASE_PATH}/logo.png.jpeg`}
                 alt="Mineração Dibase Areia e Brita"
                 width={176}
                 height={176}
@@ -76,7 +80,7 @@ export default function Home() {
           animate="visible"
         >
           <motion.div variants={item} className="w-full">
-            <GlassCard as="a" href="https://wa.me/5511999999999">
+            <GlassCard as="a" href={WHATSAPP_URL}>
               <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <WhatsAppIcon className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">WhatsApp Faturamento</span>
@@ -94,7 +98,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div variants={item} className="w-full">
-            <GlassCard as="a" href="https://instagram.com/dibase">
+            <GlassCard as="a" href={INSTAGRAM_URL}>
               <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <Instagram className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">Instagram</span>
@@ -103,7 +107,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div variants={item} className="w-full">
-            <GlassCard as="a" href={BASE_PATH ? `${BASE_PATH}/tabela-precos.pdf` : 'tabela-precos.pdf'}>
+            <GlassCard as="a" href={`${BASE_PATH}/tabela-precos.pdf`}>
               <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <FileText className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">Tabela de Preços (PDF)</span>
@@ -159,14 +163,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* Rodapé JSTec */}
-        <footer className="mt-6 w-full shrink-0 py-4 text-center">
-          <p className="text-xs text-[#D4AF37]/70">
-            © 2026 Mineração Dibase – Todos os direitos reservados.
-            <br />
-            Desenvolvido por <span className="text-[#D4AF37]/90">JSTec</span>
-          </p>
-        </footer>
+        <Footer />
       </div>
     </main>
   );
@@ -174,7 +171,7 @@ export default function Home() {
 
 function ProdutoCard({ index }: { index: number }) {
   const [imgError, setImgError] = useState(false);
-  const src = BASE_PATH ? `${BASE_PATH}/produtos/${index}.jpg` : `produtos/${index}.jpg`;
+  const src = `${BASE_PATH}/produtos/${index}.jpg`;
 
   return (
     <motion.div variants={item} className="aspect-square w-full">

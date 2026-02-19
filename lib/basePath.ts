@@ -1,5 +1,4 @@
 /**
- * Prefixo para assets. Vazio = caminhos relativos à página (funciona no GitHub Pages
- * quando o conteúdo de out/dibase-hub/ é colocado na raiz do repo).
+ * Prefixo para imagens e assets de public/ (ex.: GitHub Pages em /dibase-hub).
  */
-export const BASE_PATH = '';
+export const BASE_PATH = '/dibase-hub';

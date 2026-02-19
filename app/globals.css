@@ -6,7 +6,7 @@
   --dibase-bg: #0a0a0a;
   --dibase-gold: #D4AF37;
   --dibase-gold-muted: rgba(212, 175, 55, 0.7);
-  --overlay: rgba(10, 10, 10, 0.55);
+  --overlay: rgba(0, 0, 0, 0.45);
 }
 
 html {
@@ -28,7 +28,7 @@ body {
   color: #fff;
 }
 
-/* Fundo: cover, centralizado, 100vh sem esticar. Overlay mobile via ::after abaixo. */
+/* Fundo: cover, center, 100vh sem distorcer. Overlay escuro sutil para destacar os botões. */
 .bg-fixed-mine {
   position: relative;
   background-color: #0a0a0a;
@@ -41,7 +41,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Mobile: overlay preto 40% para legibilidade do texto dos botões */
 @media (max-width: 768px) {
   .bg-fixed-mine {
     background-attachment: scroll;
@@ -51,7 +50,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--overlay);
     z-index: 0;
     pointer-events: none;
   }
