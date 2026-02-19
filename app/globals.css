@@ -6,7 +6,8 @@
   --dibase-bg: #0a0a0a;
   --dibase-gold: #D4AF37;
   --dibase-gold-muted: rgba(212, 175, 55, 0.7);
-  --overlay: rgba(10, 10, 10, 0.82);
+  /* Overlay mais suave para a foto da mina aparecer no fundo */
+  --overlay: rgba(10, 10, 10, 0.55);
 }
 
 html {
@@ -24,11 +25,11 @@ body {
 }
 
 body {
-  background-color: #0a0a0a !important;
-  color: #fafaf9;
+  background-color: var(--dibase-bg) !important;
+  color: #fff;
 }
 
-/* Fundo fixo com overlay – caminho com prefixo para subpasta GitHub Pages */
+/* Fundo: foto da mina com overlay escuro – subpasta /dibase-hub */
 .bg-fixed-mine {
   background-color: #0a0a0a;
   background-image: linear-gradient(var(--overlay), var(--overlay)),
