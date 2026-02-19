@@ -17,9 +17,9 @@ export default function GlassCard({
   href,
   onClick,
 }: GlassCardProps) {
-  /* Referência: todos os botões iguais – fundo cinza escuro, borda dourada visível, efeito vidro */
+  /* Referência: retângulos arredondados, fundo cinza carvão, borda dourada fina */
   const base =
-    'w-full max-w-sm rounded-xl border-2 border-[#D4AF37] bg-[rgba(30,28,26,0.7)] backdrop-blur-md shadow-lg transition-all duration-200 hover:bg-[rgba(40,38,35,0.8)] active:scale-[0.99]';
+    'w-full max-w-sm rounded-xl border border-[#D4AF37] bg-[rgba(45,42,40,0.9)] backdrop-blur-sm shadow-md transition-all duration-200 hover:bg-[rgba(55,50,48,0.95)] active:scale-[0.99]';
 
   const combined = `${base} ${className}`.trim();
 
