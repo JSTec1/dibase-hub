@@ -6,7 +6,6 @@
   --dibase-bg: #0a0a0a;
   --dibase-gold: #D4AF37;
   --dibase-gold-muted: rgba(212, 175, 55, 0.7);
-  /* Overlay mais suave para a foto da mina aparecer no fundo */
   --overlay: rgba(10, 10, 10, 0.55);
 }
 
@@ -29,19 +28,31 @@ body {
   color: #fff;
 }
 
-/* Fundo: a imagem é definida no componente com URL relativa para funcionar no GitHub Pages */
+/* Fundo: cover, centralizado, 100vh sem esticar. Overlay mobile via ::after abaixo. */
 .bg-fixed-mine {
+  position: relative;
   background-color: #0a0a0a;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100dvh;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
+/* Mobile: overlay preto 40% para legibilidade do texto dos botões */
 @media (max-width: 768px) {
   .bg-fixed-mine {
     background-attachment: scroll;
+  }
+
+  .bg-fixed-mine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+    pointer-events: none;
   }
 }

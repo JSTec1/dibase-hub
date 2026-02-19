@@ -31,9 +31,9 @@ export default function Home() {
       }}
     >
       <div className="relative z-10 mx-auto flex min-h-dvh min-h-screen w-full max-w-md flex-col items-center px-4 pb-6 pt-5">
-        {/* Logo em destaque */}
+        {/* Logo em destaque – margem menor no mobile para conteúdo subir e vitrine aparecer antes do scroll */}
         <motion.div
-          className="mb-5 flex justify-center"
+          className="mb-3 flex justify-center sm:mb-5"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{
             opacity: 1,
@@ -68,61 +68,61 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Botões: mais padding, aspecto clicável */}
+        {/* Botões: mobile 90% largura centralizados, padding alto (thumb-friendly) */}
         <motion.nav
-          className="flex w-full flex-col items-center gap-2"
+          className="flex w-[90%] max-w-sm flex-col items-center gap-2 sm:w-full"
           variants={stagger}
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={item} className="w-full max-w-sm">
+          <motion.div variants={item} className="w-full">
             <GlassCard as="a" href="https://wa.me/5511999999999">
-              <div className="flex items-center gap-4 px-6 py-4 text-left">
+              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <WhatsAppIcon className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">WhatsApp Faturamento</span>
               </div>
             </GlassCard>
           </motion.div>
 
-          <motion.div variants={item} className="w-full max-w-sm">
+          <motion.div variants={item} className="w-full">
             <GlassCard as="a" href="mailto:contato@dibase.com.br">
-              <div className="flex items-center gap-4 px-6 py-4 text-left">
+              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <Mail className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">E-mail</span>
               </div>
             </GlassCard>
           </motion.div>
 
-          <motion.div variants={item} className="w-full max-w-sm">
+          <motion.div variants={item} className="w-full">
             <GlassCard as="a" href="https://instagram.com/dibase">
-              <div className="flex items-center gap-4 px-6 py-4 text-left">
+              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <Instagram className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">Instagram</span>
               </div>
             </GlassCard>
           </motion.div>
 
-          <motion.div variants={item} className="w-full max-w-sm">
+          <motion.div variants={item} className="w-full">
             <GlassCard as="a" href={BASE_PATH ? `${BASE_PATH}/tabela-precos.pdf` : 'tabela-precos.pdf'}>
-              <div className="flex items-center gap-4 px-6 py-4 text-left">
+              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <FileText className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">Tabela de Preços (PDF)</span>
               </div>
             </GlassCard>
           </motion.div>
 
-          <motion.div variants={item} className="w-full max-w-sm">
+          <motion.div variants={item} className="w-full">
             <GlassCard as="div">
-              <div className="flex items-center gap-4 px-6 py-4 text-left">
+              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <Clock className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">Horário de Funcionamento</span>
               </div>
             </GlassCard>
           </motion.div>
 
-          <motion.div variants={item} className="w-full max-w-sm">
+          <motion.div variants={item} className="w-full">
             <GlassCard as="a" href="#nossos-produtos">
-              <div className="flex items-center gap-4 px-6 py-4 text-left">
+              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
                 <Mountain className="h-6 w-6 shrink-0 text-[#D4AF37]" />
                 <span className="font-medium text-white">Nossos Produtos</span>
               </div>
