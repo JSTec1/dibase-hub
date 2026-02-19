@@ -3,15 +3,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import {
-  MessageCircle,
-  Mail,
-  Instagram,
-  FileText,
-  Clock,
-  Mountain,
-} from 'lucide-react';
+import { Mail, Instagram, FileText, Clock, Mountain } from 'lucide-react';
 import GlassCard from '@/_components/GlassCard';
+import WhatsAppIcon from '@/_components/WhatsAppIcon';
 import { BASE_PATH } from '@/lib/basePath';
 
 const stagger = {
@@ -84,7 +78,7 @@ export default function Home() {
           <motion.div variants={item} className="w-full max-w-sm">
             <GlassCard as="a" href="https://wa.me/5511999999999">
               <div className="flex items-center gap-4 px-5 py-4 text-left">
-                <MessageCircle className="h-6 w-6 shrink-0 text-[#25D366]" />
+                <WhatsAppIcon className="h-6 w-6 shrink-0 text-[#25D366]" />
                 <span className="font-medium text-white">WhatsApp Faturamento</span>
               </div>
             </GlassCard>
@@ -136,7 +130,7 @@ export default function Home() {
           </motion.div>
         </motion.nav>
 
-        {/* Nossos Produtos: título branco elegante + grid de 6 cards */}
+        {/* Nossos Produtos: 6 cards quadrados, borda dourada (mesmo modelo da referência) */}
         <section
           id="nossos-produtos"
           className="mt-16 w-full max-w-md"
@@ -151,7 +145,7 @@ export default function Home() {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-2 gap-3 sm:grid-cols-3"
+            className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-20px' }}
@@ -175,7 +169,8 @@ function ProdutoCard({ index }: { index: number }) {
 
   return (
     <motion.div variants={item} className="aspect-square w-full">
-      <GlassCard className="flex h-full min-h-0 items-center justify-center overflow-hidden p-0">
+      {/* Card no modelo da referência: quadrado, borda dourada fina, imagem ou placeholder */}
+      <GlassCard className="flex h-full min-h-0 items-center justify-center overflow-hidden rounded-lg p-0">
         <div className="relative h-full w-full">
           {!imgError ? (
             <Image
@@ -190,7 +185,7 @@ function ProdutoCard({ index }: { index: number }) {
           ) : null}
           {imgError ? (
             <div
-              className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-[rgba(20,20,20,0.5)] backdrop-blur-sm text-white"
+              className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-[rgba(30,28,26,0.6)] backdrop-blur-sm text-white"
               aria-hidden
             >
               <span className="text-3xl text-[#D4AF37]" title="Pedra">石</span>
