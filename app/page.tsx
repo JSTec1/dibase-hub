@@ -30,7 +30,12 @@ export default function Home() {
   const [logoError, setLogoError] = useState(false);
 
   return (
-    <main className="relative min-h-dvh min-h-screen w-full bg-fixed-mine">
+    <main
+      className="relative min-h-dvh min-h-screen w-full bg-fixed-mine"
+      style={{
+        backgroundImage: `linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url(background.jpg.jpeg)`,
+      }}
+    >
       <div className="relative z-10 mx-auto flex min-h-dvh min-h-screen w-full max-w-md flex-col items-center px-4 pb-12 pt-8">
         {/* Logo circular com borda dourada (fallback "DIBASE" se imagem não carregar) */}
         <motion.div
@@ -54,7 +59,7 @@ export default function Home() {
           <div className="flex h-36 w-36 items-center justify-center rounded-full p-1 ring-4 ring-[#D4AF37] shadow-lg bg-[rgba(15,15,15,0.9)] sm:h-40 sm:w-40">
             {!logoError ? (
               <Image
-                src={`${BASE_PATH}/logo.png.jpeg`}
+                src={BASE_PATH ? `${BASE_PATH}/logo.png.jpeg` : 'logo.png.jpeg'}
                 alt="Mineração Dibase Areia e Brita"
                 width={160}
                 height={160}
@@ -104,7 +109,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div variants={item} className="w-full max-w-sm">
-            <GlassCard as="a" href={`${BASE_PATH}/tabela-precos.pdf`}>
+            <GlassCard as="a" href={BASE_PATH ? `${BASE_PATH}/tabela-precos.pdf` : 'tabela-precos.pdf'}>
               <div className="flex items-center gap-4 px-5 py-4 text-left">
                 <FileText className="h-6 w-6 shrink-0 text-white" />
                 <span className="font-medium text-white">Tabela de Preços (PDF)</span>
@@ -166,7 +171,7 @@ export default function Home() {
 
 function ProdutoCard({ index }: { index: number }) {
   const [imgError, setImgError] = useState(false);
-  const src = `${BASE_PATH}/produtos/${index}.jpg`;
+  const src = BASE_PATH ? `${BASE_PATH}/produtos/${index}.jpg` : `produtos/${index}.jpg`;
 
   return (
     <motion.div variants={item} className="aspect-square w-full">

@@ -29,11 +29,9 @@ body {
   color: #fff;
 }
 
-/* Fundo: foto da mina com overlay escuro – subpasta /dibase-hub */
+/* Fundo: a imagem é definida no componente com URL relativa para funcionar no GitHub Pages */
 .bg-fixed-mine {
   background-color: #0a0a0a;
-  background-image: linear-gradient(var(--overlay), var(--overlay)),
-    url('/dibase-hub/background.jpg.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
