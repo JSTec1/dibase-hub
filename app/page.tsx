@@ -175,8 +175,9 @@ function ProdutoCard({ index }: { index: number }) {
 
   return (
     <motion.div variants={item} className="min-w-[140px] shrink-0 sm:min-w-0 sm:shrink">
-      {/* Card idêntico à referência: borda dourada fina e brilhante, legenda na parte inferior */}
-      <div className="relative aspect-square w-full rounded-2xl border border-[#D4AF37] bg-[rgba(10,10,10,0.95)] overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+      {/* Card idêntico à referência: imagem real cobrindo todo o card, borda dourada fina elegante, legenda na base */}
+      <div className="relative aspect-square w-full rounded-xl border border-[#D4AF37] overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
+        {/* Imagem real do produto cobrindo todo o card */}
         <div className="relative h-full w-full">
           {!imgError ? (
             <Image
@@ -198,9 +199,9 @@ function ProdutoCard({ index }: { index: number }) {
             </div>
           ) : null}
         </div>
-        {/* Legenda: faixa escura semi-transparente na parte inferior com nome do produto */}
-        <div className="absolute bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] backdrop-blur-sm px-3 py-2">
-          <p className="text-xs font-semibold text-white text-center">Produto {index}</p>
+        {/* Legenda: tarja preta semi-transparente na base interna do card */}
+        <div className="absolute bottom-0 left-0 right-0 bg-black/60 px-3 py-2">
+          <p className="text-xs font-medium text-white text-center">Produto {index}</p>
         </div>
       </div>
     </motion.div>
