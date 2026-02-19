@@ -134,7 +134,7 @@ export default function Home() {
           </motion.div>
         </motion.nav>
 
-        {/* Produtos: grid imponente, menos scroll, cabe na tela */}
+        {/* Produtos: LINHA ÚNICA horizontal com scroll (carrossel) - SEM grid */}
         <section
           id="nossos-produtos"
           className="mt-6 w-full max-w-md flex-1"
@@ -149,7 +149,7 @@ export default function Home() {
           </motion.h2>
 
           <motion.div
-            className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide sm:grid sm:grid-cols-3 sm:overflow-visible"
+            className="flex flex-row gap-3 overflow-x-auto pb-2 scrollbar-hide"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-10px' }}
@@ -174,10 +174,10 @@ function ProdutoCard({ index }: { index: number }) {
   const src = `${BASE_PATH}/produtos/${index}.jpg`;
 
   return (
-    <motion.div variants={item} className="min-w-[140px] shrink-0 sm:min-w-0 sm:shrink">
-      {/* Card idêntico à referência: imagem real cobrindo todo o card, borda dourada fina elegante, legenda na base */}
-      <div className="relative aspect-square w-full rounded-xl border border-[#D4AF37] overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
-        {/* Imagem real do produto cobrindo todo o card */}
+    <motion.div variants={item} className="shrink-0">
+      {/* Card: tamanho fixo (160px) para linha única, imagem real, borda dourada fina, legenda na base */}
+      <div className="relative h-[160px] w-[160px] rounded-xl border border-[#D4AF37] overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.25)]">
+        {/* Imagem real do produto cobrindo todo o card (background-size: cover) */}
         <div className="relative h-full w-full">
           {!imgError ? (
             <Image
@@ -185,7 +185,7 @@ function ProdutoCard({ index }: { index: number }) {
               alt={`Produto ${index}`}
               fill
               className="object-cover"
-              sizes="140px"
+              sizes="160px"
               unoptimized
               onError={() => setImgError(true)}
             />
@@ -199,7 +199,7 @@ function ProdutoCard({ index }: { index: number }) {
             </div>
           ) : null}
         </div>
-        {/* Legenda: tarja preta semi-transparente na base interna do card */}
+        {/* Legenda: tarja preta semi-transparente na parte inferior interna do card */}
         <div className="absolute bottom-0 left-0 right-0 bg-black/60 px-3 py-2">
           <p className="text-xs font-medium text-white text-center">Produto {index}</p>
         </div>
