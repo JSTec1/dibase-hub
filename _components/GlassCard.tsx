@@ -17,10 +17,10 @@ export default function GlassCard({
   href,
   onClick,
 }: GlassCardProps) {
-  /* Referência mobile: robustos – bg-zinc-900/80, backdrop-blur-md, bordas douradas finas, padding generoso */
+  /* Estilo Glassmorphism idêntico à referência: fundo cinza escuro semi-transparente, borda dourada fina */
   const base =
-    'w-full max-w-sm rounded-2xl border border-[#D4AF37]/60 bg-zinc-900/80 backdrop-blur-md ' +
-    'shadow-lg transition-all duration-300 hover:border-[#D4AF37] hover:shadow-[0_0_20px_rgba(212,175,55,0.12)] active:scale-[0.99]';
+    'w-full max-w-sm rounded-xl border border-[#D4AF37] bg-[rgba(30,30,30,0.7)] backdrop-blur-sm ' +
+    'shadow-lg transition-all duration-300 hover:border-[#D4AF37] hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] active:scale-[0.99]';
 
   const combined = `${base} ${className}`.trim();
 

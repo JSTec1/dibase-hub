@@ -9,7 +9,7 @@ import WhatsAppIcon from '@/_components/WhatsAppIcon';
 import Footer from '@/_components/Footer';
 import { BASE_PATH } from '@/lib/basePath';
 
-const WHATSAPP_URL = 'https://wa.me/5519999706056?text=Olá,%20gostaria%20de%20falar%20com%20o%20faturamento%20da%20Dibase..';
+const WHATSAPP_URL = 'https://wa.me/5519999706056?text=Olá,%20gostaria%20de%20falar%20com%20o%20faturamento%20da%20Dibase.';
 const INSTAGRAM_URL = 'https://www.instagram.com/mineracaodibasepedreira?igsh=bWFweDFicmV0eW9x';
 
 const stagger = {
@@ -81,54 +81,54 @@ export default function Home() {
         >
           <motion.div variants={item} className="w-full">
             <GlassCard as="a" href={WHATSAPP_URL}>
-              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
+              <div className="flex items-center gap-4 px-5 py-5 sm:px-6 sm:py-4">
                 <WhatsAppIcon className="h-6 w-6 shrink-0 text-[#D4AF37]" />
-                <span className="font-medium text-white">WhatsApp Faturamento</span>
+                <span className="flex-1 font-semibold text-white text-center">WhatsApp Faturamento</span>
               </div>
             </GlassCard>
           </motion.div>
 
           <motion.div variants={item} className="w-full">
             <GlassCard as="a" href="mailto:contato@dibase.com.br">
-              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
+              <div className="flex items-center gap-4 px-5 py-5 sm:px-6 sm:py-4">
                 <Mail className="h-6 w-6 shrink-0 text-[#D4AF37]" />
-                <span className="font-medium text-white">E-mail</span>
+                <span className="flex-1 font-semibold text-white text-center">E-mail</span>
               </div>
             </GlassCard>
           </motion.div>
 
           <motion.div variants={item} className="w-full">
             <GlassCard as="a" href={INSTAGRAM_URL}>
-              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
+              <div className="flex items-center gap-4 px-5 py-5 sm:px-6 sm:py-4">
                 <Instagram className="h-6 w-6 shrink-0 text-[#D4AF37]" />
-                <span className="font-medium text-white">Instagram</span>
+                <span className="flex-1 font-semibold text-white text-center">Instagram</span>
               </div>
             </GlassCard>
           </motion.div>
 
           <motion.div variants={item} className="w-full">
             <GlassCard as="a" href={`${BASE_PATH}/tabela-precos.pdf`}>
-              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
+              <div className="flex items-center gap-4 px-5 py-5 sm:px-6 sm:py-4">
                 <FileText className="h-6 w-6 shrink-0 text-[#D4AF37]" />
-                <span className="font-medium text-white">Tabela de Preços (PDF)</span>
+                <span className="flex-1 font-semibold text-white text-center">Tabela de Preços (PDF)</span>
               </div>
             </GlassCard>
           </motion.div>
 
           <motion.div variants={item} className="w-full">
             <GlassCard as="div">
-              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
+              <div className="flex items-center gap-4 px-5 py-5 sm:px-6 sm:py-4">
                 <Clock className="h-6 w-6 shrink-0 text-[#D4AF37]" />
-                <span className="font-medium text-white">Horário de Funcionamento</span>
+                <span className="flex-1 font-semibold text-white text-center">Horário de Funcionamento</span>
               </div>
             </GlassCard>
           </motion.div>
 
           <motion.div variants={item} className="w-full">
             <GlassCard as="a" href="#nossos-produtos">
-              <div className="flex items-center gap-4 px-5 py-5 text-left sm:px-6 sm:py-4">
+              <div className="flex items-center gap-4 px-5 py-5 sm:px-6 sm:py-4">
                 <Mountain className="h-6 w-6 shrink-0 text-[#D4AF37]" />
-                <span className="font-medium text-white">Nossos Produtos</span>
+                <span className="flex-1 font-semibold text-white text-center">Nossos Produtos</span>
               </div>
             </GlassCard>
           </motion.div>
@@ -175,8 +175,8 @@ function ProdutoCard({ index }: { index: number }) {
 
   return (
     <motion.div variants={item} className="min-w-[140px] shrink-0 sm:min-w-0 sm:shrink">
-      {/* Card como na referência: borda dourada GROSSA e proeminente, cantos muito arredondados */}
-      <div className="aspect-square w-full rounded-3xl border-[3px] border-[#D4AF37] bg-[rgba(10,10,10,0.95)] overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_25px_rgba(212,175,55,0.3)]">
+      {/* Card idêntico à referência: borda dourada fina e brilhante, legenda na parte inferior */}
+      <div className="relative aspect-square w-full rounded-2xl border border-[#D4AF37] bg-[rgba(10,10,10,0.95)] overflow-hidden shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)]">
         <div className="relative h-full w-full">
           {!imgError ? (
             <Image
@@ -195,9 +195,12 @@ function ProdutoCard({ index }: { index: number }) {
               aria-hidden
             >
               <span className="text-2xl text-[#D4AF37]" title="Pedra">石</span>
-              <span className="text-xs font-medium text-white/90">Produto {index}</span>
             </div>
           ) : null}
+        </div>
+        {/* Legenda: faixa escura semi-transparente na parte inferior com nome do produto */}
+        <div className="absolute bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] backdrop-blur-sm px-3 py-2">
+          <p className="text-xs font-semibold text-white text-center">Produto {index}</p>
         </div>
       </div>
     </motion.div>
