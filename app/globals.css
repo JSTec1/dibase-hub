@@ -1,28 +1,44 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
+@tailwind components;
 
 :root {
-  --overlay: rgba(15, 14, 12, 0.75);
+  --dibase-bg: #0a0a0a;
+  --dibase-gold: #c9a227;
+  --dibase-gold-muted: rgba(201, 162, 39, 0.7);
+  --overlay: rgba(10, 10, 10, 0.82);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+html,
 body {
   min-height: 100dvh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Fundo fixo com overlay (fallback escuro se background.jpg não existir) */
+body {
+  background-color: var(--dibase-bg);
+  color: #fafaf9;
+}
+
+/* Fundo fixo com overlay – caminho com prefixo para subpasta */
 .bg-fixed-mine {
-  background-color: #1c1917;
-  background-image: linear-gradient(var(--overlay), var(--overlay)), url('/background.jpg');
+  background-color: var(--dibase-bg);
+  background-image: linear-gradient(var(--overlay), var(--overlay)),
+    url('/dibase-hub/background.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  min-height: 100dvh;
+  min-height: 100vh;
 }
 
 @media (max-width: 768px) {

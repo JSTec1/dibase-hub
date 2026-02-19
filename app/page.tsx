@@ -12,6 +12,7 @@ import {
   Mountain,
 } from 'lucide-react';
 import GlassCard from '@/_components/GlassCard';
+import { BASE_PATH } from '@/lib/basePath';
 
 const stagger = {
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
@@ -27,8 +28,8 @@ const NUM_PRODUTOS = 6;
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-fixed-mine">
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-md flex-col items-center px-4 pb-12 pt-8">
+    <main className="relative min-h-dvh min-h-screen w-full bg-fixed-mine">
+      <div className="relative z-10 mx-auto flex min-h-dvh min-h-screen w-full max-w-md flex-col items-center px-4 pb-12 pt-8">
         {/* Logo com animação de flutuação */}
         <motion.div
           className="mb-8 flex justify-center"
@@ -49,11 +50,11 @@ export default function Home() {
           }}
         >
           <Image
-            src="/logo.png"
+            src={`${BASE_PATH}/logo.png`}
             alt="Mineração Dibase Areia Brita"
             width={160}
             height={160}
-            className="h-40 w-40 rounded-full object-contain drop-shadow-lg"
+            className="h-40 w-40 rounded-full object-contain drop-shadow-lg ring-2 ring-dibase-gold/40"
             priority
             unoptimized
           />
@@ -70,7 +71,7 @@ export default function Home() {
             <GlassCard as="a" href="https://wa.me/5511999999999">
               <div className="flex items-center gap-4 px-5 py-4 text-left">
                 <MessageCircle className="h-6 w-6 shrink-0 text-emerald-400" />
-                <span className="font-medium">WhatsApp Faturamento</span>
+                <span className="font-medium text-neutral-100">WhatsApp Faturamento</span>
               </div>
             </GlassCard>
           </motion.div>
@@ -78,8 +79,8 @@ export default function Home() {
           <motion.div variants={item} className="w-full max-w-sm">
             <GlassCard as="a" href="mailto:contato@dibase.com.br">
               <div className="flex items-center gap-4 px-5 py-4 text-left">
-                <Mail className="h-6 w-6 shrink-0 text-amber-500/90" />
-                <span className="font-medium">E-mail</span>
+                <Mail className="h-6 w-6 shrink-0 text-dibase-gold-light" />
+                <span className="font-medium text-neutral-100">E-mail</span>
               </div>
             </GlassCard>
           </motion.div>
@@ -88,16 +89,16 @@ export default function Home() {
             <GlassCard as="a" href="https://instagram.com/dibase">
               <div className="flex items-center gap-4 px-5 py-4 text-left">
                 <Instagram className="h-6 w-6 shrink-0 text-pink-400" />
-                <span className="font-medium">Instagram</span>
+                <span className="font-medium text-neutral-100">Instagram</span>
               </div>
             </GlassCard>
           </motion.div>
 
           <motion.div variants={item} className="w-full max-w-sm">
-            <GlassCard as="a" href="/tabela-precos.pdf">
+            <GlassCard as="a" href={`${BASE_PATH}/tabela-precos.pdf`}>
               <div className="flex items-center gap-4 px-5 py-4 text-left">
-                <FileText className="h-6 w-6 shrink-0 text-sky-300/90" />
-                <span className="font-medium">Tabela de Preços (PDF)</span>
+                <FileText className="h-6 w-6 shrink-0 text-dibase-gold-light" />
+                <span className="font-medium text-neutral-100">Tabela de Preços (PDF)</span>
               </div>
             </GlassCard>
           </motion.div>
@@ -105,8 +106,8 @@ export default function Home() {
           <motion.div variants={item} className="w-full max-w-sm">
             <GlassCard as="div">
               <div className="flex items-center gap-4 px-5 py-4 text-left">
-                <Clock className="h-6 w-6 shrink-0 text-amber-200/90" />
-                <span className="font-medium">Horário de Funcionamento</span>
+                <Clock className="h-6 w-6 shrink-0 text-dibase-gold-muted" />
+                <span className="font-medium text-neutral-100">Horário de Funcionamento</span>
               </div>
             </GlassCard>
           </motion.div>
@@ -114,8 +115,8 @@ export default function Home() {
           <motion.div variants={item} className="w-full max-w-sm">
             <GlassCard as="a" href="#nossos-produtos">
               <div className="flex items-center gap-4 px-5 py-4 text-left">
-                <Mountain className="h-6 w-6 shrink-0 text-amber-300/90" />
-                <span className="font-medium">Nossos Produtos</span>
+                <Mountain className="h-6 w-6 shrink-0 text-dibase-gold-light" />
+                <span className="font-medium text-neutral-100">Nossos Produtos</span>
               </div>
             </GlassCard>
           </motion.div>
@@ -127,7 +128,7 @@ export default function Home() {
           className="mt-16 w-full max-w-md"
         >
           <motion.h2
-            className="mb-6 text-center text-xl font-semibold tracking-wide text-amber-200/95"
+            className="font-display mb-6 text-center text-xl font-semibold tracking-wide text-dibase-gold-light"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
@@ -156,7 +157,7 @@ export default function Home() {
 
 function ProdutoCard({ index }: { index: number }) {
   const [imgError, setImgError] = useState(false);
-  const src = `/produtos/${index}.jpg`;
+  const src = `${BASE_PATH}/produtos/${index}.jpg`;
 
   return (
     <motion.div variants={item} className="aspect-square w-full">
@@ -175,11 +176,11 @@ function ProdutoCard({ index }: { index: number }) {
           ) : null}
           {imgError ? (
             <div
-              className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-[rgba(45,42,38,0.6)] text-amber-200/60"
+              className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-[rgba(10,10,10,0.6)] backdrop-blur-sm text-dibase-gold-muted"
               aria-hidden
             >
               <span className="text-3xl" title="Pedra">石</span>
-              <span className="text-xs font-medium">Produto {index}</span>
+              <span className="text-xs font-medium text-neutral-300">Produto {index}</span>
             </div>
           ) : null}
         </div>

@@ -18,13 +18,18 @@ export default function GlassCard({
   onClick,
 }: GlassCardProps) {
   const base =
-    'w-full max-w-sm rounded-2xl border border-white/20 bg-[rgba(45,42,38,0.45)] backdrop-blur-md shadow-lg transition-all duration-300 hover:border-white/35 hover:bg-[rgba(55,50,45,0.55)] active:scale-[0.98]';
+    'w-full max-w-sm rounded-2xl border border-dibase-gold-muted bg-[rgba(10,10,10,0.45)] backdrop-blur-md shadow-xl transition-all duration-300 hover:border-dibase-gold/80 hover:bg-[rgba(20,18,15,0.6)] active:scale-[0.98]';
 
   const combined = `${base} ${className}`.trim();
 
   if (Component === 'a' && href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={combined}>
+      <a
+        href={href}
+        target={href.startsWith('#') ? undefined : '_blank'}
+        rel={href.startsWith('#') ? undefined : 'noopener noreferrer'}
+        className={combined}
+      >
         {children}
       </a>
     );
