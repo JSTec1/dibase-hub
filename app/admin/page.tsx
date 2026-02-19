@@ -7,7 +7,7 @@ import GlassCard from '@/_components/GlassCard';
 
 export default function AdminPage() {
   return (
-    <main className="relative min-h-dvh min-h-screen w-full bg-dibase-black">
+    <main className="relative min-h-dvh min-h-screen w-full bg-dibase-black" style={{ backgroundColor: '#0a0a0a' }}>
       <div className="relative z-10 mx-auto flex min-h-dvh min-h-screen w-full max-w-md flex-col px-4 pb-12 pt-8">
         <div className="mb-8 flex items-center justify-between">
           <Link

@@ -10,9 +10,9 @@ const config: Config = {
       colors: {
         dibase: {
           black: '#0a0a0a',
-          gold: '#c9a227',
+          gold: '#D4AF37',
           'gold-light': '#e5c76b',
-          'gold-muted': 'rgba(201, 162, 39, 0.7)',
+          'gold-muted': 'rgba(212, 175, 55, 0.7)',
         },
       },
       fontFamily: {

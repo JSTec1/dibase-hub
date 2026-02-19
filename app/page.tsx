@@ -28,7 +28,7 @@ const NUM_PRODUTOS = 6;
 
 export default function Home() {
   return (
-    <main className="relative min-h-dvh min-h-screen w-full bg-fixed-mine">
+    <main className="relative min-h-dvh min-h-screen w-full bg-fixed-mine" style={{ backgroundColor: '#0a0a0a' }}>
       <div className="relative z-10 mx-auto flex min-h-dvh min-h-screen w-full max-w-md flex-col items-center px-4 pb-12 pt-8">
         {/* Logo com animação de flutuação */}
         <motion.div

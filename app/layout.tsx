@@ -33,7 +33,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${playfair.variable} ${sourceSans.variable}`}>
-      <body className="min-h-screen min-h-dvh w-full bg-dibase-black font-body text-neutral-100 antialiased">
+      <body
+        className="min-h-screen min-h-dvh w-full font-body text-white antialiased"
+        style={{ backgroundColor: '#0a0a0a' }}
+      >
         {children}
       </body>
     </html>

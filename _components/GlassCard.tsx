@@ -18,7 +18,7 @@ export default function GlassCard({
   onClick,
 }: GlassCardProps) {
   const base =
-    'w-full max-w-sm rounded-2xl border border-dibase-gold-muted bg-[rgba(10,10,10,0.45)] backdrop-blur-md shadow-xl transition-all duration-300 hover:border-dibase-gold/80 hover:bg-[rgba(20,18,15,0.6)] active:scale-[0.98]';
+    'w-full max-w-sm rounded-2xl border border-[#D4AF37]/60 bg-[rgba(10,10,10,0.5)] backdrop-blur-md shadow-xl transition-all duration-300 hover:border-[#D4AF37] hover:bg-[rgba(20,18,15,0.6)] active:scale-[0.98]';
 
   const combined = `${base} ${className}`.trim();
 
